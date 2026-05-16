@@ -1,3 +1,3 @@
-def preprocess_lines(lines):
-    """Preprocess lines by normalizing and cleaning text."""
-    return [line.lower().strip() for line in lines]
+def preprocess_lines(all_lines):
+    all_lines = [line.lower().strip() for line in all_lines]
+    return all_lines
