@@ -1,6 +1,5 @@
-def split_into_words(lines):
-    """Split lines into individual words and clean punctuation."""
+def split_into_words(all_lines):
     words = []
-    for line in lines:
+    for line in all_lines:
         words.extend(word.strip(",.!?") for word in line.split())
     return words
