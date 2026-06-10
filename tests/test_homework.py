@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+import sys
 
 
 def test_homework():
@@ -21,7 +22,7 @@ def test_homework():
 
     try:
         subprocess.run(
-            ["python3", "-m", "homework", "data/input", "data/output"],
+            [sys.executable, "-m", "homework", "data/input", "data/output"],
             check=True,
         )
     except subprocess.CalledProcessError as e:
@@ -35,17 +36,6 @@ def test_homework():
         raise Exception(f"'{results_file}' file does not exist")
 
     with open(results_file, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        result = {}
-        for line in lines:
-            key, value = line.strip().split("\t")
-            result[key] = int(value)
-
-    assert result.get("analytics", 0) == 5, "Incorrect count for 'analytics'"
-    assert result.get("business", 0) == 7, "Incorrect count for 'business'"
-    assert result.get("by", 0) == 3, "Incorrect count for 'by'"
-    assert result.get("algorithms", 0) == 2, "Incorrect count for 'algorithms'"
-    assert result.get("analysis", 0) == 4, "Incorrect count for 'analysis'"    with open(results_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
         result = {}
         for line in lines:
