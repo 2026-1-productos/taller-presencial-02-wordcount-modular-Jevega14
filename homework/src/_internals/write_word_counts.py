@@ -2,9 +2,7 @@ import os
 
 
 def write_word_counts(output_folder, counter):
-
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
+    os.makedirs(output_folder, exist_ok=True)
 
     # save the results using tsv format
 
